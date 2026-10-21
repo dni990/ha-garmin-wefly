@@ -24,11 +24,11 @@ MYVARIO_BARO_FIELD = "BarometricAltitude"
 
 BASE_TYPES: dict[int, tuple[str, int | None, Any]] = {
     0x00: ("enum", None, None),
-    0x01: ("sint8", 1, -128),
+    0x01: ("sint8", 1, 0x7F),
     0x02: ("uint8", 1, 0xFF),
-    0x83: ("sint16", 2, -32768),
+    0x83: ("sint16", 2, 0x7FFF),
     0x84: ("uint16", 2, 0xFFFF),
-    0x85: ("sint32", 4, -2147483648),
+    0x85: ("sint32", 4, 0x7FFFFFFF),
     0x86: ("uint32", 4, 0xFFFFFFFF),
     0x07: ("string", None, None),
     0x88: ("float32", 4, float("nan")),
@@ -37,7 +37,7 @@ BASE_TYPES: dict[int, tuple[str, int | None, Any]] = {
     0x8B: ("uint16z", 2, 0x0000),
     0x8C: ("uint32z", 4, 0x00000000),
     0x0D: ("byte", 1, None),
-    0x8E: ("sint64", 8, -9223372036854775808),
+    0x8E: ("sint64", 8, 0x7FFFFFFFFFFFFFFF),
     0x8F: ("uint64", 8, 0xFFFFFFFFFFFFFFFF),
     0x90: ("uint64z", 8, 0x0000000000000000),
 }

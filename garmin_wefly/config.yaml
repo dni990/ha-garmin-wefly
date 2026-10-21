@@ -1,5 +1,5 @@
 name: "Garmin → We-Fly"
-version: "0.3.0"
+version: "0.3.1"
 slug: garmin_wefly
 description: "Holt MyVario-Flüge aus Garmin Connect, wandelt FIT in IGC und lädt sie zu We-Fly hoch"
 arch:
