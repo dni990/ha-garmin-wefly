@@ -1,0 +1,52 @@
+name: "Garmin → We-Fly"
+version: "0.3.0"
+slug: garmin_wefly
+description: "Holt MyVario-Flüge aus Garmin Connect, wandelt FIT in IGC und lädt sie zu We-Fly hoch"
+arch:
+  - aarch64
+  - amd64
+startup: application
+boot: auto
+homeassistant_api: true
+map:
+  - type: share
+    read_only: false
+options:
+  garmin_email: ""
+  garmin_password: ""
+  wefly_api_key: ""
+  wefly_upload_url: "https://we-fly.cloud/api/v1/flights/upload"
+  wefly_file_field: "file"
+  pilot: ""
+  glider_type: ""
+  converter_cmd: ""
+  activity_type_keys: []
+  name_contains: []
+  upload_since: ""
+  interval_minutes: 15
+  lookback_activities: 20
+  list_activities: true
+  dry_run: true
+  notify: true
+  pip_packages: []
+schema:
+  garmin_email: "str?"
+  garmin_password: "password?"
+  wefly_api_key: "password?"
+  wefly_upload_url: url
+  wefly_file_field: str
+  pilot: "str?"
+  glider_type: "str?"
+  converter_cmd: "str?"
+  activity_type_keys:
+    - str
+  name_contains:
+    - str
+  upload_since: "str?"
+  interval_minutes: "int(5,1440)"
+  lookback_activities: "int(1,100)"
+  list_activities: bool
+  dry_run: bool
+  notify: bool
+  pip_packages:
+    - str

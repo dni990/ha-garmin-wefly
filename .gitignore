@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Garmin-Tokens aus get_tokens.py
+tokens/
+
+# Persönliche Flugdaten und Archiv
+*.zip
+*.fit
+*.igc
+export/
+_archiv/
