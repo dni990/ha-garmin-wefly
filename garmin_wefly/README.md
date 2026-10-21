@@ -22,17 +22,13 @@ einen anderen Konverter setzen; `{fit}` und `{igc}` werden ersetzt.
 
 ## Höhe
 
-Das Druckhöhen-Feld der IGC enthält immer die MyVario-Baro-Höhe (von MyVario
-bereits auf die echte Höhe kalibriert). Fürs GNSS-Höhenfeld gibt es `gnss_altitude`:
+Wie es der IGC-Standard vorsieht, enthält jedes Höhenfeld genau einen Sensor:
 
-- `gps`: Höhe der Uhr. Absolut genau, aber geglättet (ca. 2 s Verzug, kurze
-  Steigspitzen 10–20 % schwächer).
-- `baro`: ungeglätteter Baro-Verlauf, um den mittleren Abstand zur Uhrenhöhe
-  verschoben. Dateiname bekommt den Zusatz `_baro`.
+- Druckhöhen-Feld: MyVario-Baro-Höhe – ungeglättet, reagiert sofort.
+- GNSS-Feld: Höhe der Uhr – absolut genau, aber geglättet (ca. 2 s Verzug).
 
-Jede IGC enthält eine Zeile `LXXXALTSRC …`, die festhält, welche Quelle verwendet wurde.
-Modus vor dem ersten echten Upload festlegen: We-Fly erkennt Duplikate am
-Dateiinhalt, derselbe Flug im anderen Modus wäre ein zweiter Flug.
+We-Fly zeigt beide an (Umschalter Baro/GPS). Jede IGC enthält außerdem die Zeile
+`LXXXALTSRC GNSS=watch PRESS=MyVario-baro`.
 
 ## Filter einrichten (wichtig)
 
