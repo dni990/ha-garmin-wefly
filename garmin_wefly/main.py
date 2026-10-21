@@ -183,7 +183,8 @@ def convert(opts, fit_path, igc_path):
     else:
         # Eingebauter Konverter (fit_to_igc.py liegt neben main.py)
         cmd = [sys.executable, str(CONVERTER), str(fit_path), "-o", str(igc_path),
-               "--pilot", opts.get("pilot") or "", "--glider-type", opts.get("glider_type") or ""]
+               "--pilot", opts.get("pilot") or "", "--glider-type", opts.get("glider_type") or "",
+               "--gnss-altitude", opts.get("gnss_altitude") or "gps"]
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
     if res.stdout.strip():
         log.info("Konverter: %s", res.stdout.strip()[-1000:])
@@ -253,7 +254,8 @@ def process(client, opts, state):
         try:
             with tempfile.TemporaryDirectory() as tmp:
                 fit_path = Path(tmp) / f"{aid}.fit"
-                igc_path = Path(tmp) / f"{start}_{aid}.igc"
+                suffix = "_baro" if opts.get("gnss_altitude") == "baro" else ""
+                igc_path = Path(tmp) / f"{start}_{aid}{suffix}.igc"
                 download_fit(client, act["activityId"], fit_path)
                 convert(opts, fit_path, igc_path)
                 shutil.copy2(igc_path, ARCHIVE / igc_path.name)

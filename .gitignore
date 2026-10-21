@@ -11,3 +11,6 @@ tokens/
 *.igc
 export/
 _archiv/
+
+# Lokales Testwerkzeug mit Zugangsdaten
+_lokal/

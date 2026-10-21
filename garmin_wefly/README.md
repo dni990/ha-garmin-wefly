@@ -20,6 +20,20 @@ per API zu We-Fly hoch.
 `converter_cmd` leer lassen, dann wird der eingebaute Konverter genutzt. Nur für
 einen anderen Konverter setzen; `{fit}` und `{igc}` werden ersetzt.
 
+## Höhe
+
+Das Druckhöhen-Feld der IGC enthält immer die MyVario-Baro-Höhe (von MyVario
+bereits auf die echte Höhe kalibriert). Fürs GNSS-Höhenfeld gibt es `gnss_altitude`:
+
+- `gps`: Höhe der Uhr. Absolut genau, aber geglättet (ca. 2 s Verzug, kurze
+  Steigspitzen 10–20 % schwächer).
+- `baro`: ungeglätteter Baro-Verlauf, um den mittleren Abstand zur Uhrenhöhe
+  verschoben. Dateiname bekommt den Zusatz `_baro`.
+
+Jede IGC enthält eine Zeile `LXXXALTSRC …`, die festhält, welche Quelle verwendet wurde.
+Modus vor dem ersten echten Upload festlegen: We-Fly erkennt Duplikate am
+Dateiinhalt, derselbe Flug im anderen Modus wäre ein zweiter Flug.
+
 ## Filter einrichten (wichtig)
 
 Ohne Filter lädt das Add-on absichtlich nichts hoch. Beim ersten Start steht im

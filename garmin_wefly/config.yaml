@@ -1,5 +1,5 @@
 name: "Garmin → We-Fly"
-version: "0.3.1"
+version: "0.4.0"
 slug: garmin_wefly
 description: "Holt MyVario-Flüge aus Garmin Connect, wandelt FIT in IGC und lädt sie zu We-Fly hoch"
 arch:
@@ -19,6 +19,7 @@ options:
   wefly_file_field: "file"
   pilot: ""
   glider_type: ""
+  gnss_altitude: "gps"
   converter_cmd: ""
   activity_type_keys: []
   name_contains: []
@@ -37,6 +38,7 @@ schema:
   wefly_file_field: str
   pilot: "str?"
   glider_type: "str?"
+  gnss_altitude: "list(gps|baro)"
   converter_cmd: "str?"
   activity_type_keys:
     - str
