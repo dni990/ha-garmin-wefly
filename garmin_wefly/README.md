@@ -6,20 +6,9 @@ per API zu We-Fly hoch.
 
 ## Installation auf Home Assistant
 
-1. Das Repo ist privat, deshalb als lokales Add-on per Git klonen (Terminal im
-   „Advanced SSH & Web Terminal“-Add-on):
-
-   ```sh
-   git clone https://github.com/dni990/ha-garmin-wefly /addons/ha-garmin-wefly
-   ```
-
-   Git fragt nach Benutzername und Passwort: als Passwort einen GitHub-Token
-   (Fine-grained, nur dieses Repo, „Contents: Read-only“). Dann in HA:
-   Add-on-Store → ⋮ → „Nach Updates suchen“ → unter „Lokale Add-ons“ erscheint
-   „Garmin → We-Fly“ → Installieren.
-
-   Update: `cd /addons/ha-garmin-wefly && git pull`, dann im Add-on „Neu erstellen“
-   (bzw. bei erhöhter `version` in `config.yaml` „Aktualisieren“).
+1. Einstellungen → Add-ons → Add-on-Store → ⋮ → Repositories →
+   `https://github.com/dni990/ha-garmin-wefly` hinzufügen, dann „Garmin → We-Fly“
+   installieren.
 2. Konfiguration ausfüllen: Garmin-Login, We-Fly-API-Key (`wf_key_…`, aus dem
    We-Fly-Developer-Dashboard, Scope `flights:write`).
    Filter erst nach dem ersten Start setzen (siehe unten).
